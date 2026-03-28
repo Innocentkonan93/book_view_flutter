@@ -4,6 +4,15 @@ A premium, realistic book card widget for Flutter that brings the physical feel 
 
 ---
 
+## 📸 Preview
+
+<div align="center">
+  <img src="https://raw.githubusercontent.com/Innocentkonan93/book_view_flutter/main/assets/preview.png" width="300" alt="BookView Preview" />
+  <p><i>Realistic book design with 3D spine and custom badges</i></p>
+</div>
+
+---
+
 ## ✨ Features
 
 - **Realistic 3D Binding**: Includes a subtle spine gradient and vertical details for a professional look.

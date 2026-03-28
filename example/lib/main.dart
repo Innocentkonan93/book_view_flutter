@@ -36,12 +36,12 @@ class BookGalleryPage extends StatelessWidget {
         padding: const EdgeInsets.all(16.0),
         child: GridView.builder(
           gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-            crossAxisCount: 2,
+            crossAxisCount: 1,
             childAspectRatio: 0.65,
             crossAxisSpacing: 20,
             mainAxisSpacing: 20,
           ),
-          itemCount: books.length,
+          itemCount: 1,
           itemBuilder: (context, index) {
             final book = books[index];
             return BookView(
