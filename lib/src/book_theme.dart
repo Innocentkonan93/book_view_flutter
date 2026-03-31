@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 /// Theme configuration for the BookCard widget.
 class BookViewTheme {
+  /// Creates a [BookViewTheme] with customizable properties.
   const BookViewTheme({
     this.spineGradient = const LinearGradient(
       begin: Alignment.centerRight,
@@ -24,17 +25,40 @@ class BookViewTheme {
     this.badgeTextStyle,
   });
 
+  /// The gradient used for the book spine effect.
   final Gradient spineGradient;
+
+  /// The width of the vertical line on the spine.
   final double spineLineWidth;
+
+  /// The color of the vertical line on the spine.
   final Color spineLineColor;
+
+  /// The border radius of the book cover.
   final double borderRadius;
+
+  /// The shadow color of the book card.
   final Color shadowColor;
+
+  /// The color of the "Purchased" badge.
   final Color purchasedBadgeColor;
+
+  /// The color of the price badge.
   final Color priceBadgeColor;
+
+  /// Whether to show the decorative frame line on the cover.
   final bool showFrameLine;
+
+  /// The color of the decorative frame line.
   final Color frameLineColor;
+
+  /// The text style for the book title.
   final TextStyle? titleStyle;
+
+  /// The text style for the book author.
   final TextStyle? authorStyle;
+
+  /// The text style for the badge label.
   final TextStyle? badgeTextStyle;
 
   /// Default theme configuration.

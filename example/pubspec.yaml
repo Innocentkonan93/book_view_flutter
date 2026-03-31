@@ -1,7 +1,7 @@
 name: example
 description: "Demonstration of the book_view_flutter package."
 publish_to: "none"
-version: 1.0.0+1
+version: 1.0.0
 
 environment:
   sdk: ^3.11.1

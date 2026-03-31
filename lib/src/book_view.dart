@@ -4,6 +4,7 @@ import 'book_theme.dart';
 
 /// A realistic book card widget with a spine effect and shadows.
 class BookView extends StatelessWidget {
+  /// Creates a [BookView] widget for network images.
   const BookView({
     super.key,
     required this.imageUrl,
@@ -16,17 +17,55 @@ class BookView extends StatelessWidget {
     this.width = 120,
     this.height = 180,
     this.theme = BookViewTheme.standard,
-  });
+  }) : isAsset = false;
 
+  /// Creates a [BookView] widget for asset images.
+  const BookView.asset({
+    super.key,
+    required String assetPath,
+    required this.title,
+    required this.author,
+    this.priceLabel,
+    this.isPurchased = false,
+    this.onTap,
+    this.heroTag,
+    this.width = 120,
+    this.height = 180,
+    this.theme = BookViewTheme.standard,
+  })  : imageUrl = assetPath,
+        isAsset = true;
+
+  /// The URL or asset path of the book cover image.
   final String imageUrl;
+
+  /// Whether the image is an asset or a network image.
+  final bool isAsset;
+
+  /// The title of the book.
   final String title;
+
+  /// The author of the book.
   final String author;
+
+  /// An optional price label shown on the badge.
   final String? priceLabel;
+
+  /// Whether the book is already purchased.
   final bool isPurchased;
+
+  /// Callback when the book card is tapped.
   final VoidCallback? onTap;
+
+  /// Unique tag for [Hero] animation. Defaults to [imageUrl] if null.
   final String? heroTag;
+
+  /// The width of the book card.
   final double width;
+
+  /// The height of the book card image.
   final double height;
+
+  /// Theme configuration for the book card.
   final BookViewTheme theme;
 
   @override
@@ -61,21 +100,31 @@ class BookView extends StatelessWidget {
                       ),
                       child: ClipRRect(
                         borderRadius: BorderRadius.circular(theme.borderRadius),
-                        child: CachedNetworkImage(
-                          imageUrl: imageUrl,
-                          fit: BoxFit.cover,
-                          alignment: Alignment.topLeft,
-                          placeholder: (context, url) => Container(
-                            color: Colors.grey[300],
-                            child: const Center(
-                              child: CircularProgressIndicator(strokeWidth: 2),
-                            ),
-                          ),
-                          errorWidget: (context, url, error) => Container(
-                            color: Colors.grey[300],
-                            child: const Icon(Icons.book),
-                          ),
-                        ),
+                        child: isAsset
+                            ? Image.asset(
+                                imageUrl,
+                                fit: BoxFit.cover,
+                                alignment: Alignment.topLeft,
+                                errorBuilder: (context, error, stackTrace) => Container(
+                                  color: Colors.grey[300],
+                                  child: const Icon(Icons.book),
+                                ),
+                              )
+                            : CachedNetworkImage(
+                                imageUrl: imageUrl,
+                                fit: BoxFit.cover,
+                                alignment: Alignment.topLeft,
+                                placeholder: (context, url) => Container(
+                                  color: Colors.grey[300],
+                                  child: const Center(
+                                    child: CircularProgressIndicator(strokeWidth: 2),
+                                  ),
+                                ),
+                                errorWidget: (context, url, error) => Container(
+                                  color: Colors.grey[300],
+                                  child: const Icon(Icons.book),
+                                ),
+                              ),
                       ),
                     ),
 

@@ -50,6 +50,17 @@ BookView(
 )
 ```
 
+### Displaying Asset Images
+
+```dart
+BookView.asset(
+  assetPath: 'assets/images/clean_code.png',
+  title: 'Clean Code',
+  author: 'Robert C. Martin',
+  priceLabel: '30,00 €',
+)
+```
+
 ### Advanced Theming
 
 ```dart
@@ -76,9 +87,10 @@ BookView(
 
 ### BookView Widget Parameters
 
-| Parameter     | Type            | Description                              |
-| ------------- | --------------- | ---------------------------------------- |
-| `imageUrl`    | `String`        | The cover image URL (automatic caching). |
+| Parameter     | Type            | Description                                |
+| ------------- | --------------- | ------------------------------------------ |
+| `imageUrl`    | `String`        | Image URL or Asset Path (depending on constructor). |
+| `isAsset`     | `bool`          | Internal flag (set automatically by `.asset()`).   |
 | `title`       | `String`        | Book title displayed below the cover.    |
 | `author`      | `String`        | Author name displayed below the title.   |
 | `priceLabel`  | `String?`       | Text for the price overlay.              |
