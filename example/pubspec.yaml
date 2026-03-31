@@ -1,5 +1,5 @@
-name: example
-description: "Demonstration of the book_view_flutter package."
+name: book_view_flutter_example
+description: "Example application for the book_view_flutter package."
 publish_to: "none"
 version: 1.0.0
 

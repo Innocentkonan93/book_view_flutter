@@ -1,8 +1,7 @@
-# 0.0.1+2
-* **New:** Added `BookView.asset` constructor to display images from local assets.
-* **Doc:** Comprehensive dartdoc comments added for all public members to reach 100% API documentation.
-* **Lint:** Enabled `public_member_api_docs` to maintain documentation quality.
-* Minor performance improvements and code structure refinements.
+# 0.1.0
+* **Feature:** Added `BookView.asset` constructor for local asset support.
+* **Doc:** Reached 100% dartdoc coverage for public API.
+* **Maintenance:** Optimized for 160/160 pub.dev score.
 
 # 0.0.1+1
 
