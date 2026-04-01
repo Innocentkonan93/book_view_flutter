@@ -36,29 +36,41 @@ class BookGalleryPage extends StatelessWidget {
         padding: const EdgeInsets.all(16.0),
         child: GridView.builder(
           gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-            crossAxisCount: 1,
-            childAspectRatio: 0.65,
-            crossAxisSpacing: 20,
-            mainAxisSpacing: 20,
+            crossAxisCount: 2,
+            childAspectRatio: 0.6,
+            crossAxisSpacing: 16,
+            mainAxisSpacing: 16,
           ),
-          itemCount: 1,
+          itemCount: books.length,
           itemBuilder: (context, index) {
             final book = books[index];
+            if (book.isAsset) {
+              return BookView.asset(
+                assetPath: book.imageUrl,
+                title: book.title,
+                author: book.author,
+                priceLabel: book.price,
+                isPurchased: book.isPurchased,
+                onTap: () => _onBookTap(context, book),
+              );
+            }
             return BookView(
               imageUrl: book.imageUrl,
               title: book.title,
               author: book.author,
               priceLabel: book.price,
               isPurchased: book.isPurchased,
-              onTap: () {
-                ScaffoldMessenger.of(context).showSnackBar(
-                  SnackBar(content: Text('Ouverture de : ${book.title}')),
-                );
-              },
+              onTap: () => _onBookTap(context, book),
             );
           },
         ),
       ),
+    );
+  }
+
+  void _onBookTap(BuildContext context, BookData book) {
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(content: Text('Ouverture de : ${book.title}')),
     );
   }
 }
@@ -69,6 +81,7 @@ class BookData {
   final String imageUrl;
   final String? price;
   final bool isPurchased;
+  final bool isAsset;
 
   BookData({
     required this.title,
@@ -76,10 +89,25 @@ class BookData {
     required this.imageUrl,
     this.price,
     this.isPurchased = false,
+    this.isAsset = false,
   });
 }
 
 final List<BookData> books = [
+  BookData(
+    title: 'Mon Livre Asset 1',
+    author: 'Innocent K.',
+    imageUrl: 'assets/images/1.jpg',
+    price: '950 F',
+    isAsset: true,
+  ),
+  BookData(
+    title: 'Mon Livre Asset 2',
+    author: 'Innocent K.',
+    imageUrl: 'assets/images/2.jpg',
+    isPurchased: true,
+    isAsset: true,
+  ),
   BookData(
     title: 'L\'Art de la Guerre',
     author: 'Sun Tzu',

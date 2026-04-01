@@ -29,7 +29,7 @@ Add this to your package's `pubspec.yaml` file:
 
 ```yaml
 dependencies:
-  book_view_flutter: ^0.0.1
+  book_view_flutter: ^0.1.0
 ```
 
 ---
