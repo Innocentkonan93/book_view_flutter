@@ -1,6 +1,6 @@
 name: book_view_flutter
 description: "A premium, realistic book card widget for Flutter with a 3D-like spine effect, customizable shadows, and deep theming support."
-version: 0.1.0
+version: 0.2.1
 homepage: https://github.com/Innocentkonan93/book_view_flutter
 repository: https://github.com/Innocentkonan93/book_view_flutter
 
@@ -12,6 +12,7 @@ dependencies:
   flutter:
     sdk: flutter
   cached_network_image: ^3.4.1
+  shimmer: ^3.0.0
 
 dev_dependencies:
   flutter_test:

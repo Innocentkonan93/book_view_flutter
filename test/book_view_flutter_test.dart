@@ -36,4 +36,16 @@ void main() {
     expect(find.text('Asset Title'), findsOneWidget);
     expect(find.text('Asset Author'), findsOneWidget);
   });
+
+  int calculateMemCacheWidth(double width, double devicePixelRatio) {
+    return (width * devicePixelRatio).round();
+  }
+
+  test('calculates memory cache width from rendered width', () {
+    expect(calculateMemCacheWidth(80, 3), 240);
+
+    expect(calculateMemCacheWidth(120, 3), 360);
+
+    expect(calculateMemCacheWidth(250, 3), 750);
+  });
 }
